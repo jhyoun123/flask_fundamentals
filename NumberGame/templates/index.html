@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if ("{{ session['guess'] }}" == "too low" || "{{ session['guess'] }}" == "too high") {
+                $('#box').css({"background-color": "red", "width": "150px", "height": "100px", "padding-top": "60px", "margin-bottom": "20px"});
+                $('#box p').css({"text-align": "center", "color": "white", "font-size": "20px"})
+                $('#answer').show()
+                $('#reset').hide()
+            }
+            else if ("{{ session['guess'] }}" == "correct") {
+                $('#answer').hide()
+                $('#reset').show()
+            }
+
+            else {
+                $('#reset').hide()
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <h2>Welcome to the Great Number Game!</h2>
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess!</p>
+    <div id="box">
+        <p>{{ session['guess'] }}</p>
+    </div>
+    <form id="answer" action="/answer" method="post">
+        <input type="text" name="guess">
+        <input type="submit" value="Submit">
+    </form>
+    <form id='reset' action="/reset" method="post">
+        <input type="submit" value="Click to reset game">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+* {
+    width: 660px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+form {
+    padding: 10px;
+}
+
+input {
+    margin-top: 10px;
+}

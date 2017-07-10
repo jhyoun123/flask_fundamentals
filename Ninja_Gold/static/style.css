@@ -1,0 +1,14 @@
+div.box {
+	display: inline-block;
+	border: 2px solid black;
+	text-align: center;
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+body {
+	margin: 0 auto;
+	width: 1000px;
+	margin-top: 50px;
+}
